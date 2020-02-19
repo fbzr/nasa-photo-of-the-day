@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import apod from '../nasa_data/apod';
+import functions from '../functions';
 
-const Header = () => {
+const Apod = () => {
     const [data, setData] = useState({
         imageUrl: '',
         title: '',
         description: ''
     });
+
+    const date = functions.convertDateToString(new Date());
 
     useEffect(() => {
         apod.getData()
@@ -24,12 +27,15 @@ const Header = () => {
       }, []);
 
     return (
-        <div className='header'>
-            <img className='background-image' src={data.imageUrl} alt={data.title} />
-            <h1 className='title'>{data.title}</h1>
-            <p className='description'>{data.description}</p>
-        </div>
+        <section className='apod'>
+            <div>
+                <h3>{data.title}</h3>
+                <h4>{date}</h4>
+                <p>{data.description}</p>
+            </div>
+            <img src={data.imageUrl} alt={data.title} />
+        </section>
     )
 }
 
-export default Header
+export default Apod

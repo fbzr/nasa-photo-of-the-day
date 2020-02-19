@@ -1,0 +1,30 @@
+.header {
+    height: @header-height;
+    position: relative;
+    overflow: hidden;
+    color: white;
+
+    .flex(@direction: column, @align: flex-start, @justify: space-evenly);
+
+    .background-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
+
+    .title {
+        width: 300px;
+        padding: 30px;
+
+        .dark-background-layer();
+    }
+
+    .description {
+        width: 60%;
+        padding: 30px;
+        .dark-background-layer();
+    }
+}
