@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+import apod from './nasa_data/apod';
 
 function App() {
+  useEffect(() => {
+    apod.getData()
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, []);
+
   return (
     <div className="App">
       <p>
