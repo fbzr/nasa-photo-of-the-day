@@ -9,24 +9,69 @@ const ModalDiv = styled.div`
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.7);
+    color: white;
 
-    display: ${({ modalActive }) => modalActive ? 'block' : 'none' }
+    justify-content: center;
+    align-content: center;
+    display: ${({ modalActive }) => modalActive ? 'flex' : 'none' }
+    
+`
+const ContainerDiv = styled.div`
+    position: relative;
+    /* width: 70%; */
+    height: 90%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const CloseButton = styled.a`
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: 5rem;
+    color: red;
+
+    &:hover {
+        cursor: pointer;    
+    }
+`
+const ModalImage = styled.img`
+    /* position: absolute; */
+    object-fit: contain;
+    object-position: center;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+`
+
+const DescriptionDiv = styled.div`
+    width: 300px;
+    position: absolute;
+`
+
+const ModalTitle = styled.h1`
+    margin: 15px 0;
+`
+const ModalParagraph = styled.p`
+    margin: 15px 0;
 `
 
 const Modal = ({ modalActive, hideModal, apod }) => {
     return ( 
         <ModalDiv modalActive={modalActive}>
-            <h1>{apod.title}</h1>
-            <p>{apod.description}</p>
-            <p>{dateFunctions.convertFromUniversalDate(apod.date).toDateString()}</p>
+            <ContainerDiv>
+                <DescriptionDiv>
+                    <ModalTitle>{apod.title}</ModalTitle>
+                    <ModalParagraph>{dateFunctions.convertFromUniversalDate(apod.date).toDateString()}</ModalParagraph>
+                    <ModalParagraph>{apod.description}</ModalParagraph>
+                </DescriptionDiv>
+                <ModalImage src={apod.url} alt={apod.title} />
 
-            <CloseButton onClick={hideModal}>close</CloseButton>
+                <CloseButton onClick={hideModal}><i class="far fa-times-circle"></i></CloseButton>
+            </ContainerDiv>
         </ModalDiv> 
     );
 }
