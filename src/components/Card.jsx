@@ -28,10 +28,10 @@ const Card = ({date, setModal}) => {
     }, [date]);
 
     const showModal = () => {
-        setModal({
-            active: true,
-            url: data.imageUrl
-        });
+        // setModal({
+        //     active: true,
+        //     url: data.imageUrl
+        // });
     }
 
     return (
