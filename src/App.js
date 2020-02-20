@@ -16,7 +16,7 @@ function App() {
         <Header />
         <CustomApod />
         <Week setModal={setModal} />
-        <Modal active={modal.active} />
+        <Modal active={modal.active} setModal={setModal} />
       </Fragment>
   );
 }

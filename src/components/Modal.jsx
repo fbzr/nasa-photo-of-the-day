@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-const Modal = (props) => {
-    return props.active ?
+const Modal = ({active, setModal}) => {
+    const exit = () => {
+        setModal({
+            active: false,
+            url: ''
+        });
+    }
+
+    return active ?
         (
-            <div className='modal'>
+            <div className='modal' onClick={exit}>
                 This is my modal
             </div>
         ) 

@@ -27,15 +27,15 @@ const Card = ({date, setModal}) => {
             });
     }, [date]);
 
-    const toggleModal = () => {
-        setModal(prevModal => ({
-            active: !prevModal.active,
+    const showModal = () => {
+        setModal({
+            active: true,
             url: data.imageUrl
-        }));
+        });
     }
 
     return (
-        <div className='card' onClick={toggleModal}>
+        <div className='card' onClick={showModal}>
             <div className='img-container'>
                 <img src={data.imageUrl} alt={data.title} />
             </div>
