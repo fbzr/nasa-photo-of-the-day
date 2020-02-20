@@ -37,7 +37,11 @@ const CustomDate = () => {
                 <p>Custom Date</p>
                 <input type='date' onChange={changeDate} max={functions.convertToUniversalDate(new Date())}></input>
             </div>
-            <img src={data.imageUrl} alt='' />
+            <div>
+                <h3>{data.title}</h3>
+                <p>{data.description}</p>
+                <img src={data.imageUrl} alt={data.title} />
+            </div>
         </section>
     )
 }
