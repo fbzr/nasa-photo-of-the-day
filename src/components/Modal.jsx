@@ -1,21 +1,14 @@
 import React, {useEffect} from 'react';
 
-const Modal = ({active, setModal}) => {
-    const exit = () => {
-        setModal({
-            active: false,
-            url: ''
-        });
-    }
+const Modal = ({modalActive, hideModal}) => {
+    const className = modalActive ? 'modal display-block' : 'modal display-none';
 
-    return active ?
-        (
-            <div className='modal' onClick={exit}>
-                This is my modal
-            </div>
-        ) 
-        :
-        null;
+    return ( 
+        <div className={className}>
+            This is my modal
+            <button onClick={hideModal}>close</button>
+        </div> 
+    );
 }
 
 export default Modal

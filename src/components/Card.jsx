@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 
 
-const Card = ({date, setModal}) => {
+const Card = ({date, showModal}) => {
     const [data, setData] = useState({
         imageUrl: '',
         title: '',
         description: ''
     });
-
-
 
     useEffect(() => {
         apodData.getData(date)
@@ -26,13 +24,6 @@ const Card = ({date, setModal}) => {
                 console.log(err);
             });
     }, [date]);
-
-    const showModal = () => {
-        // setModal({
-        //     active: true,
-        //     url: data.imageUrl
-        // });
-    }
 
     return (
         <div className='card' onClick={showModal}>

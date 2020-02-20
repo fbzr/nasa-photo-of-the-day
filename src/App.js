@@ -6,17 +6,18 @@ import Week from './components/Week';
 import Modal from './components/Modal';
 
 function App() {
-  const [modal, setModal] = useState({
-    active: false,
-    url: ''
-  });
+  const [modalActive, setModalActive] = useState(false);
+
+  const showModal = () => setModalActive(true);
+  const hideModal = () => setModalActive(false);
+
 
   return (
       <Fragment>
         <Header />
         <CustomApod />
-        <Week setModal={setModal} />
-        {/* <Modal active={modal.active} setModal={setModal} /> */}
+        <Week showModal={showModal} />
+        <Modal modalActive={modalActive} hideModal={hideModal} />
       </Fragment>
   );
 }
