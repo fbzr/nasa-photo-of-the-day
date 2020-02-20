@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 
 
-const Card = ({date, showModal}) => {
+const Card = ({ date, showModal, setModalApod }) => {
     const [data, setData] = useState({
-        imageUrl: '',
+        url: '',
         title: '',
-        description: ''
+        description: '',
+        date: ''
     });
 
     useEffect(() => {
         apodData.getData(date)
             .then(res => {
-                const { url, title, explanation } = res.data;
+                const { url, title, explanation, date } = res.data;
                 
                 setData({
-                    imageUrl: url,
+                    url: url,
                     title: title,
-                    description: explanation
+                    description: explanation,
+                    date: date
                 });
             })
             .catch(err => {
@@ -25,10 +27,15 @@ const Card = ({date, showModal}) => {
             });
     }, [date]);
 
+    const activeModal = () => {
+        setModalApod(data);
+        showModal();
+    }
+
     return (
-        <div className='card' onClick={showModal}>
+        <div className='card' onClick={activeModal}>
             <div className='img-container'>
-                <img src={data.imageUrl} alt={data.title} />
+                <img src={data.url} alt={data.title} />
             </div>
             <h4>{data.title}</h4>
             <p>{data.description.slice(0, 50)}</p>
