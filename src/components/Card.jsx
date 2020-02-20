@@ -1,31 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 
-const Card = ({date}) => {
+
+const Card = ({date, setModal}) => {
     const [data, setData] = useState({
         imageUrl: '',
         title: '',
         description: ''
     });
 
+
+
     useEffect(() => {
         apodData.getData(date)
-        .then(res => {
-            const { url, title, explanation } = res.data;
-            
-            setData({
-                imageUrl: url,
-                title: title,
-                description: explanation
+            .then(res => {
+                const { url, title, explanation } = res.data;
+                
+                setData({
+                    imageUrl: url,
+                    title: title,
+                    description: explanation
+                });
+            })
+            .catch(err => {
+                console.log(err);
             });
-        })
-        .catch(err => {
-            console.log(err);
-        });
     }, [date]);
 
+    const toggleModal = () => {
+        setModal(prevModal => ({
+            active: !prevModal.active,
+            url: data.imageUrl
+        }));
+    }
+
     return (
-        <div className='card'>
+        <div className='card' onClick={toggleModal}>
             <div className='img-container'>
                 <img src={data.imageUrl} alt={data.title} />
             </div>
