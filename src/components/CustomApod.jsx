@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 import functions from '../functions';
 
-const CustomDate = () => {
+const CustomApod = () => {
     const [date, setDate] = useState(new Date());
 
     const [data, setData] = useState({
@@ -12,7 +12,7 @@ const CustomDate = () => {
     });
 
     const changeDate = e => {
-        setDate(new Date(`${e.target.value}T00:00:00`));
+        setDate(functions.convertFromUniversalDate(e.target.value));
     }
     
     useEffect(() => {
@@ -24,7 +24,7 @@ const CustomDate = () => {
                     imageUrl: url,
                     title: title,
                     description: explanation
-                });       
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -32,18 +32,20 @@ const CustomDate = () => {
     }, [date]);
     
     return (
-        <section>
+        <section className='custom-apod'>
             <div>
                 <p>Custom Date</p>
                 <input type='date' onChange={changeDate} max={functions.convertToUniversalDate(new Date())}></input>
             </div>
-            <div>
-                <h3>{data.title}</h3>
-                <p>{data.description}</p>
+            <div className='content'>
+                <div>
+                    <h3>{data.title}</h3>
+                    <p>{data.description}</p>
+                </div>
                 <img src={data.imageUrl} alt={data.title} />
             </div>
         </section>
     )
 }
 
-export default CustomDate
+export default CustomApod;

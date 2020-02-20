@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
 import "./css/index.css";
 import Header from './components/Header';
-import Apod from './components/Apod';
-import CustomDate from './components/CustomDate';
+import CustomApod from './components/CustomApod';
+import Week from './components/Week';
 
 function App() {
   return (
       <Fragment>
         <Header />
-        <Apod />
-        <CustomDate />
+        <CustomApod />
+        <Week />
       </Fragment>
   );
 }

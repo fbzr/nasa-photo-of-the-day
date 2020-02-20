@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 
-const Header = () => {
+const Card = ({date}) => {
     const [data, setData] = useState({
         imageUrl: '',
         title: '',
@@ -9,28 +9,30 @@ const Header = () => {
     });
 
     useEffect(() => {
-        apodData.getData()
-          .then(res => {
+        apodData.getData(date)
+        .then(res => {
             const { url, title, explanation } = res.data;
+            
             setData({
                 imageUrl: url,
                 title: title,
                 description: explanation
-            });            
-          })
-          .catch(err => {
+            });
+        })
+        .catch(err => {
             console.log(err);
-          })
-      }, []);
+        });
+    }, [date]);
 
     return (
-        <div className='header'>
-            <img className='background-image' src={data.imageUrl} alt={data.title} />
-            <h1>Astronomy Picture Of The Day</h1>
-            <h2 className='title'>{data.title}</h2>
-            <p className='description'>{data.description}</p>
+        <div className='card'>
+            <div className='img-container'>
+                <img src={data.imageUrl} alt={data.title} />
+            </div>
+            <h4>{data.title}</h4>
+            <p>{data.description.slice(0, 50)}</p>
         </div>
     )
 }
 
-export default Header
+export default Card
