@@ -26,9 +26,8 @@ const Header = () => {
     return (
         <div className='header'>
             <img className='background-image' src={data.imageUrl} alt={data.title} />
-            <h1>Astronomy Picture Of The Day</h1>
-            <h2 className='title'>{data.title}</h2>
-            <p className='description'>{data.description}</p>
+            <h1 className='title'>Astronomy Picture Of The Day</h1>
+            <h2 className='subtitle'>{data.title}</h2>
         </div>
     )
 }

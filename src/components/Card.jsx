@@ -1,6 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
+import dateFunctions from '../functions';
+import styled from 'styled-components';
 
+const CardDiv = styled.div`
+    margin: 15px 0;
+`
 
 const Card = ({ date, showModal, setModalApod }) => {
     const [data, setData] = useState({
@@ -34,13 +39,14 @@ const Card = ({ date, showModal, setModalApod }) => {
 
     console.log('its rendering card');
     return (
-        <div className='card' onClick={activeModal}>
+        <CardDiv className='card' onClick={activeModal}>
             <div className='img-container'>
                 <img src={data.url} alt={data.title} />
             </div>
             <h4>{data.title}</h4>
+            <p>{dateFunctions.convertFromUniversalDate(data.date).toDateString()}</p>
             <p>{data.description.slice(0, 50)}</p>
-        </div>
+        </CardDiv>
     )
 }
 

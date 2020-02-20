@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import dateFunctions from '../functions';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ const ModalDiv = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.9);
     color: white;
 
     justify-content: center;
@@ -18,59 +18,75 @@ const ModalDiv = styled.div`
 `
 const ContainerDiv = styled.div`
     position: relative;
-    /* width: 70%; */
-    height: 90%;
+    height: 100%;
+    max-width: 100%;
     align-self: center;
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 `
 
 const CloseButton = styled.a`
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 5rem;
-    color: red;
+    top: 0;
+    right: 0;
+    margin: 45px;
+    font-size: 4rem;
+    color: #fff;
+    z-index: 1;
 
     &:hover {
         cursor: pointer;    
     }
 `
 const ModalImage = styled.img`
-    /* position: absolute; */
     object-fit: contain;
     object-position: center;
     height: 100%;
+    max-width: 65%;
     top: 0;
     z-index: -1;
 `
 
 const DescriptionDiv = styled.div`
-    width: 300px;
-    position: absolute;
+    padding: 30px;
+    z-index: 1;
+    &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 `
 
 const ModalTitle = styled.h1`
+    margin: 15px 60px 15px 0;
+`
+const ModalDate = styled.h4`
     margin: 15px 0;
 `
-const ModalParagraph = styled.p`
-    margin: 15px 0;
+
+const ModalDescription = styled.p`
+    margin: 40px 0 15px;
 `
 
 const Modal = ({ modalActive, hideModal, apod }) => {
     return ( 
         <ModalDiv modalActive={modalActive}>
             <ContainerDiv>
+                <ModalImage src={apod.url} alt={apod.title} />
                 <DescriptionDiv>
                     <ModalTitle>{apod.title}</ModalTitle>
-                    <ModalParagraph>{dateFunctions.convertFromUniversalDate(apod.date).toDateString()}</ModalParagraph>
-                    <ModalParagraph>{apod.description}</ModalParagraph>
+                    <ModalDate>{dateFunctions.convertFromUniversalDate(apod.date).toDateString()}</ModalDate>
+                    <ModalDescription>{apod.description}</ModalDescription>
                 </DescriptionDiv>
-                <ModalImage src={apod.url} alt={apod.title} />
+                
 
-                <CloseButton onClick={hideModal}><i class="far fa-times-circle"></i></CloseButton>
+                <CloseButton onClick={hideModal}><i className="far fa-times-circle"></i></CloseButton>
             </ContainerDiv>
         </ModalDiv> 
     );
