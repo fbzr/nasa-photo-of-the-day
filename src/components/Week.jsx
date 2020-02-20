@@ -9,8 +9,7 @@ const Week = () => {
 
     for(let i=1; i<7; i++) {    
         const date = new Date(dayBefore.setDate(today.getDate() - i));
-        console.log(date);
-        cards.push(<Card date={date} />);
+        cards.push(<Card date={date} key={i} />);
     }
 
     return (
