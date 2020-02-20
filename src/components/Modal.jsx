@@ -1,18 +1,33 @@
 import React from 'react';
 import dateFunctions from '../functions';
+import styled from 'styled-components';
+
+const ModalDiv = styled.div`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+
+    display: ${({ modalActive }) => modalActive ? 'block' : 'none' }
+`
+
+const CloseButton = styled.a`
+    position: absolute;
+    top: 10px;
+    right: 10px;
+`
 
 const Modal = ({ modalActive, hideModal, apod }) => {
-    const className = modalActive ? 'modal display-block' : 'modal display-none';
-
     return ( 
-        <div className={className}>
-            This is my modal
+        <ModalDiv modalActive={modalActive}>
             <h1>{apod.title}</h1>
             <p>{apod.description}</p>
             <p>{dateFunctions.convertFromUniversalDate(apod.date).toDateString()}</p>
 
-            <button onClick={hideModal}>close</button>
-        </div> 
+            <CloseButton onClick={hideModal}>close</CloseButton>
+        </ModalDiv> 
     );
 }
 

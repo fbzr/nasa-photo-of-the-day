@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import apodData from '../nasa_data/apod';
 
 
@@ -27,10 +27,11 @@ const Card = ({ date, showModal, setModalApod }) => {
             });
     }, [date]);
 
-    const activeModal = () => {
+    const activeModal = useCallback(() => {
         setModalApod(data);
         showModal();
-    }
+    }, [showModal, setModalApod, data]);
+
     console.log('its rendering card');
     return (
         <div className='card' onClick={activeModal}>
