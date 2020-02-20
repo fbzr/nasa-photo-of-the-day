@@ -250,3 +250,9 @@ section {
   color: red;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.modal.display-none {
+  display: none;
+}
+.modal.display-block {
+  display: block;
+}

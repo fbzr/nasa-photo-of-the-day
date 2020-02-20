@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const Week = ({setModal}) => {
+const Week = ({showModal}) => {
     let cards = [];
     
     let today = new Date();
@@ -10,7 +10,7 @@ const Week = ({setModal}) => {
     // Create a Card component to each day (6 previous days)
     for(let i=1; i<7; i++) {    
         const date = new Date(dayBefore.setDate(today.getDate() - i));
-        cards.push(<Card date={date} key={i} setModal={setModal} />);
+        cards.push(<Card date={date} key={i} showModal={showModal} />);
     }
 
     return (
