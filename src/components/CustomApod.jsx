@@ -48,4 +48,4 @@ const CustomApod = () => {
     )
 }
 
-export default CustomApod;
+export default React.memo(CustomApod);

@@ -31,7 +31,7 @@ const Card = ({ date, showModal, setModalApod }) => {
         setModalApod(data);
         showModal();
     }
-
+    console.log('its rendering card');
     return (
         <div className='card' onClick={activeModal}>
             <div className='img-container'>
@@ -43,4 +43,4 @@ const Card = ({ date, showModal, setModalApod }) => {
     )
 }
 
-export default Card
+export default React.memo(Card);

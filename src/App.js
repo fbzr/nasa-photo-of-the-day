@@ -1,7 +1,7 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useCallback, Fragment } from "react";
 import "./css/index.css";
-// import Header from './components/Header';
-// import CustomApod from './components/CustomApod';
+import Header from './components/Header';
+import CustomApod from './components/CustomApod';
 import Week from './components/Week';
 import Modal from './components/Modal';
 
@@ -14,23 +14,30 @@ function App() {
       date: ''
   });
 
-  const showModal = () => setModalActive(true);
-  const hideModal = () => setModalActive(false);
+  const showModal = useCallback(() => {
+    console.log('its setting active state to true');
+    setModalActive(true);
+  }, []);
 
-  const setModalApod = (data) => {
+  const hideModal = useCallback(() => {
+    console.log('its setting active state to false');
+    setModalActive(false);
+  }, []);
+
+  const setModalApod = useCallback((data) => {
+    console.log('its setting apod data state');
     setApod({
       title: data.title,
       description: data.description,
       url: data.url,
       date: data.date
     });
-  }
-
+  }, []);
 
   return (
       <Fragment>
-        {/* <Header /> */}
-        {/* <CustomApod /> */}
+        <Header />
+        <CustomApod />
         <Week showModal={showModal} setModalApod={setModalApod} />
         <Modal modalActive={modalActive} hideModal={hideModal} apod={apod} />
       </Fragment>
