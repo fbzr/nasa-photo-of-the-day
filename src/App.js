@@ -37,7 +37,7 @@ function App() {
   return (
       <Fragment>
         <Header />
-        <CustomApod />
+        <CustomApod showModal={showModal} setModalApod={setModalApod} />
         <Week showModal={showModal} setModalApod={setModalApod} />
         <Modal modalActive={modalActive} hideModal={hideModal} apod={apod} />
       </Fragment>

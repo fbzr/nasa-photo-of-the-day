@@ -51,6 +51,7 @@ const ModalImage = styled.img`
 
 const DescriptionDiv = styled.div`
     padding: 30px;
+    max-width: 40%;
     z-index: 1;
     &:after {
         position: absolute;

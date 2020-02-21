@@ -141,6 +141,12 @@ h3 {
 h4 {
   font-size: 2.6rem;
 }
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 2rem;
+}
 p {
   font-size: 1.6rem;
   line-height: 2rem;
@@ -149,7 +155,7 @@ section {
   margin: 0 12%;
 }
 .header {
-  height: 100vh;
+  height: 300px;
   position: relative;
   overflow: hidden;
   color: white;
@@ -169,7 +175,7 @@ section {
 }
 .header .title {
   font-size: 7rem;
-  padding: 50px;
+  padding: 30px 50px;
   position: relative;
 }
 .header .title:before {
@@ -184,7 +190,7 @@ section {
 }
 .header .subtitle {
   width: 300px;
-  padding: 30px 50px;
+  padding: 20px 50px;
   font-size: 5rem;
   position: relative;
 }
@@ -225,26 +231,56 @@ section {
 }
 .custom-apod {
   margin-top: 70px;
+  margin-bottom: 70px;
 }
 .custom-apod .content {
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap;
 }
-.custom-apod .content div {
+.custom-apod .content .description-wrapper {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap;
 }
-.custom-apod .content div .date-container {
+.custom-apod .content .description-wrapper .date-container {
   margin-bottom: 30px;
 }
-.custom-apod .content img {
+.custom-apod .content .img-wrapper {
+  position: relative;
   width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.custom-apod .content .img-wrapper:hover i {
+  font-size: 3.5rem;
+}
+.custom-apod .content .img-wrapper img {
+  width: 100%;
+}
+.custom-apod .content .img-wrapper img:hover {
+  cursor: pointer;
+}
+.custom-apod .content .img-wrapper iframe {
+  width: 100%;
+  height: 300px;
+}
+.custom-apod .content .img-wrapper i {
+  position: absolute;
+  font-size: 3rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  transition: font-size 100ms;
 }
 .cards-container {
   display: flex;

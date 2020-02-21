@@ -1,9 +1,12 @@
 .custom-apod {    
     margin-top: 70px;
+    margin-bottom: 70px;
     .content {
+        margin-top: 30px;
         .flex(@align: flex-start);
 
-        div {
+        .description-wrapper {
+            width: 50%;
             .flex(@direction: column, @align: flex-start);
 
             .date-container {
@@ -11,8 +14,39 @@
             }
         }
 
-        img {
+        .img-wrapper {
+            position: relative;
             width: 50%;
+            .flex();
+
+            &:hover {
+                i {
+                    font-size: 3.5rem;
+                }
+            }
+
+            img {
+                width: 100%;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 300px;
+            }
+
+            i {
+                position: absolute;
+                font-size: 3rem;
+                color: #fff;
+                background-color: fadeout(black, 70%);
+                padding: 5px;
+
+                transition: font-size 100ms;
+            }
         }
     }
 }
