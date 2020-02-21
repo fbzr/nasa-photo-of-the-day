@@ -43,9 +43,11 @@ const Card = ({ date, showModal, setModalApod }) => {
             <div className='img-container'>
                 <img src={data.url} alt={data.title} />
             </div>
-            <h4>{data.title}</h4>
-            <p>{dateFunctions.convertFromUniversalDate(data.date).toDateString()}</p>
-            <p>{data.description.slice(0, 50)}</p>
+            <div className='text-container'>
+                <h4>{data.title}</h4>
+                <p>{dateFunctions.convertFromUniversalDate(data.date).toDateString()}</p>
+                {/* <p>{data.description.slice(0, 50)}</p> */}
+            </div>
         </CardDiv>
     )
 }

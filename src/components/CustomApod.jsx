@@ -50,24 +50,23 @@ const CustomApod = ({showModal, setModalApod}) => {
     return (
         <section className='custom-apod'>
             <form onSubmit={submitDate} className='date-container'>
-                <label><p>Select a date</p>
-                <input onChange={changeDate} value={dateInput} type='date' max={functions.convertToUniversalDate(new Date())}></input>
+                <label><h4>Select a date:</h4>
+                    <input onChange={changeDate} value={dateInput} type='date' max={functions.convertToUniversalDate(new Date())}></input>
                 </label>
                 <button type='submit'>Submit</button>
             </form>
             <div className='content' >
                 <div className='description-wrapper'>
                     <div>
-                        <h3>{data.title}</h3>
+                        <h3 className='title'>{data.title}</h3>
                         <p>{data.description}</p>
                     </div>
                 </div>
-                <div className='img-wrapper'>
-                    
+                <div className='img-wrapper' onClick={activeModal} >
                     { data.mediaType === 'image' ? 
-                        <Fragment>
+                        <Fragment >
                             <i className="fas fa-search-plus"></i>    
-                            <img src={data.url} alt={data.title} onClick={activeModal} /> 
+                            <img src={data.url} alt={data.title} /> 
                         </Fragment> 
                         :
                         <iframe src={ data.url } frameBorder='0' allow='autoplay; encrypted-media' allowFullScreen title='video' />
