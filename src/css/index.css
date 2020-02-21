@@ -172,7 +172,7 @@ section {
 }
 .header .title {
   font-size: 7rem;
-  padding: 30px 50px;
+  padding: 30px 12%;
   position: relative;
 }
 .header .title:before {
@@ -187,7 +187,7 @@ section {
 }
 .header .subtitle {
   width: 300px;
-  padding: 20px 50px;
+  padding: 20px 12%;
   font-size: 5rem;
   position: relative;
 }
@@ -316,7 +316,8 @@ section {
 .card {
   position: relative;
   width: 300px;
-  border: 2px solid #333;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 300ms;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -325,12 +326,15 @@ section {
 }
 .card:hover {
   cursor: pointer;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
 .card:hover .img-container i {
   font-size: 3rem;
 }
 .card .img-container {
+  overflow: hidden;
   height: 200px;
+  transition: all 200ms;
   display: flex;
   flex-direction: row;
   justify-content: center;
