@@ -7,10 +7,29 @@
 
     &:hover {
         cursor: pointer;
+
+        .img-container i {
+            font-size: 3rem;
+        }
     }
 
     .img-container {
         height: 200px;
+        .flex();
+
+        // &:hover {
+        //     i {
+        //         font-size: 3rem;
+        //     }
+        // }
+
+        i {
+            position: absolute;
+            color: #fff;
+            font-size: 2rem;
+
+            transition: font-size 100ms;
+        }
 
         img {
             object-fit: cover;

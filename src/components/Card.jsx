@@ -41,6 +41,7 @@ const Card = ({ date, showModal, setModalApod }) => {
     return (
         <CardDiv className='card' onClick={activeModal}>
             <div className='img-container'>
+                <i className="fas fa-search-plus"></i>    
                 <img src={data.url} alt={data.title} />
             </div>
             <div className='text-container'>

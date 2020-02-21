@@ -326,8 +326,22 @@ section {
 .card:hover {
   cursor: pointer;
 }
+.card:hover .img-container i {
+  font-size: 3rem;
+}
 .card .img-container {
   height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.card .img-container i {
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  transition: font-size 100ms;
 }
 .card .img-container img {
   object-fit: cover;
