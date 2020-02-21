@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import dateFunctions from '../functions';
 import styled from 'styled-components';
 

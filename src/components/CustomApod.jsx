@@ -33,14 +33,16 @@ const CustomApod = () => {
     
     return (
         <section className='custom-apod'>
-            <div>
-                <p>Custom Date</p>
-                <input type='date' onChange={changeDate} max={functions.convertToUniversalDate(new Date())}></input>
-            </div>
             <div className='content'>
                 <div>
-                    <h3>{data.title}</h3>
-                    <p>{data.description}</p>
+                    <div className='date-container'>
+                        <p>Custom Date</p>
+                        <input type='date' onChange={changeDate} max={functions.convertToUniversalDate(new Date())}></input>
+                    </div>
+                    <div>
+                        <h3>{data.title}</h3>
+                        <p>{data.description}</p>
+                    </div>
                 </div>
                 <img src={data.imageUrl} alt={data.title} />
             </div>

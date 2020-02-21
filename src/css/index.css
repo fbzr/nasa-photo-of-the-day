@@ -223,12 +223,25 @@ section {
 .apod img {
   width: 50%;
 }
+.custom-apod {
+  margin-top: 70px;
+}
 .custom-apod .content {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
+}
+.custom-apod .content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.custom-apod .content div .date-container {
+  margin-bottom: 30px;
 }
 .custom-apod .content img {
   width: 50%;

@@ -1,7 +1,16 @@
 .custom-apod {    
+    margin-top: 70px;
     .content {
-        .flex();
-        
+        .flex(@align: flex-start);
+
+        div {
+            .flex(@direction: column, @align: flex-start);
+
+            .date-container {
+                margin-bottom: 30px;
+            }
+        }
+
         img {
             width: 50%;
         }
