@@ -5,17 +5,19 @@ const Header = () => {
     const [data, setData] = useState({
         imageUrl: '',
         title: '',
-        description: ''
+        description: '',
+        mediaType: ''
     });
 
     useEffect(() => {
         apodData.getData()
           .then(res => {
-            const { url, title, explanation } = res.data;
+            const { url, title, explanation, media_type } = res.data;
             setData({
                 imageUrl: url,
                 title: title,
-                description: explanation
+                description: explanation,
+                mediaType: media_type
             });            
           })
           .catch(err => {
@@ -25,7 +27,11 @@ const Header = () => {
 
     return (
         <div className='header'>
-            <img className='background-image' src={data.imageUrl} alt={data.title} />
+            { data.mediaType === 'image' ? 
+              <img className='background-image' src={data.imageUrl} alt={data.title} /> 
+              :
+              null
+            }
             <h1 className='title'>Astronomy Picture Of The Day</h1>
             <h2 className='subtitle'>{data.title}</h2>
         </div>
