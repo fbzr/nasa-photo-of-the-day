@@ -172,7 +172,7 @@ section {
 }
 .header .title {
   font-size: 7rem;
-  padding: 30px 12%;
+  padding: 30px 5% 30px 12%;
   position: relative;
 }
 .header .title:before {
@@ -187,7 +187,7 @@ section {
 }
 .header .subtitle {
   width: 300px;
-  padding: 20px 12%;
+  padding: 20px 5% 20px 12%;
   font-size: 5rem;
   position: relative;
 }
@@ -258,14 +258,14 @@ section {
   align-items: center;
   flex-wrap: nowrap;
 }
+.custom-apod .content .img-wrapper:hover {
+  cursor: pointer;
+}
 .custom-apod .content .img-wrapper:hover i {
   font-size: 3.5rem;
 }
 .custom-apod .content .img-wrapper img {
   width: 100%;
-}
-.custom-apod .content .img-wrapper img:hover {
-  cursor: pointer;
 }
 .custom-apod .content .img-wrapper iframe {
   width: 100%;
@@ -276,7 +276,6 @@ section {
   position: absolute;
   font-size: 3rem;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.3);
   padding: 5px;
   transition: font-size 100ms;
 }
