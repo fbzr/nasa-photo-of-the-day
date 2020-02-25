@@ -152,7 +152,6 @@ section {
   margin: 0 12%;
 }
 .header {
-  height: 300px;
   position: relative;
   overflow: hidden;
   color: white;
@@ -186,7 +185,7 @@ section {
   z-index: -1;
 }
 .header .subtitle {
-  width: 300px;
+  max-width: 350px;
   padding: 20px 5% 20px 12%;
   font-size: 5rem;
   position: relative;
