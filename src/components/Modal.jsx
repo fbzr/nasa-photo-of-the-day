@@ -24,7 +24,7 @@ const ContainerDiv = styled.div`
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 `
 
 const CloseButton = styled.a`
@@ -47,6 +47,12 @@ const ModalImage = styled.img`
     max-width: 65%;
     top: 0;
     z-index: -1;
+    
+    @media (max-width: 500px) {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
 `
 
 const DescriptionDiv = styled.div`
@@ -61,6 +67,10 @@ const DescriptionDiv = styled.div`
         top: 0;
         left: 0;
         z-index: -1;
+    }
+
+    @media (max-width: 500px) {
+        display: none;
     }
 `
 
