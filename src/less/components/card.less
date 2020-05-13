@@ -1,17 +1,47 @@
 .card {
     position: relative;
-    width: 300px;
-
+    width: 30%;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+    transition: all 300ms;
     .flex(@direction: column);
 
+    @media @tablet { width: 45%; }
+    @media @mobile { width: 100%; }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+
+        .img-container {
+            i {
+                font-size: 3rem;
+            }
+        }
+    }
+
     .img-container {
+        overflow: hidden;
         height: 200px;
+        transition: all 200ms;
+        .flex();
+
+        i {
+            position: absolute;
+            color: #fff;
+            font-size: 2rem;
+
+            transition: font-size 100ms;
+        }
 
         img {
             object-fit: cover;
             width: 100%;
             height: 100%;
         }
+    }
+
+    .text-container {
+        padding: 20px 10px;
     }
     
 }

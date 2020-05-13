@@ -1,8 +1,9 @@
 .header {
-    height: @header-height;
     position: relative;
     overflow: hidden;
     color: white;
+    background-color: @header-background;
+    z-index: -2;
 
     .flex(@direction: column, @align: flex-start, @justify: space-evenly);
 
@@ -16,10 +17,24 @@
     }
 
     .title {
-        width: 300px;
-        padding: 30px;
-
+        font-size: 7rem;
+        padding: 30px 5% 30px 12%;
         .dark-background-layer();
+        margin: 2% 0 1%;
+
+        @media @tablet { font-size: 5rem; }
+        @media @mobile { font-size: 4rem; }
+    }
+
+    .subtitle {
+        max-width: 350px;
+        padding: 20px 5% 20px 12%;
+        font-size: 5rem;
+        margin: 1% 0 2%;
+        .dark-background-layer();
+
+        @media @tablet { font-size: 4rem; }
+        @media @tablet { font-size: 3rem; }
     }
 
     .description {
