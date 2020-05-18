@@ -12,19 +12,21 @@ const Card = ({ date, showModal, setModalApod }) => {
         url: '',
         title: '',
         description: '',
-        date: ''
+        date: '',
+        mediaType: ''
     });
 
     useEffect(() => {
         apodData.getData(date)
             .then(res => {
-                const { url, title, explanation, date } = res.data;
+                const { url, title, explanation, date, media_type } = res.data;
                 
                 setData({
                     url: url,
                     title: title,
                     description: explanation,
-                    date: date
+                    date: date,
+                    mediaType: media_type
                 });
             })
             .catch(err => {
@@ -41,13 +43,18 @@ const Card = ({ date, showModal, setModalApod }) => {
     return (
         <CardDiv className='card' onClick={activeModal}>
             <div className='img-container'>
-                <i className="fas fa-search-plus"></i>    
-                <img src={data.url} alt={data.title} />
+                { data.mediaType === 'image' ? 
+                    <>
+                        <i className="fas fa-search-plus"></i>    
+                        <img src={data.url} alt={data.title} />
+                    </>
+                    :
+                    <iframe title={data.title} src={ data.url } frameBorder='0' allow='autoplay; encrypted-media' allowFullScreen />
+                }
             </div>
             <div className='text-container'>
                 <h4>{data.title}</h4>
                 <p>{dateFunctions.convertFromUniversalDate(data.date).toDateString()}</p>
-                {/* <p>{data.description.slice(0, 50)}</p> */}
             </div>
         </CardDiv>
     )

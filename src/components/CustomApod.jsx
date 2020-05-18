@@ -69,7 +69,7 @@ const CustomApod = ({showModal, setModalApod}) => {
                             <img src={data.url} alt={data.title} /> 
                         </Fragment> 
                         :
-                        <iframe src={ data.url } frameBorder='0' allow='autoplay; encrypted-media' allowFullScreen title='video' />
+                        <iframe title={data.title} src={ data.url } frameBorder='0' allow='autoplay; encrypted-media' allowFullScreen />
                      }
                 </div>
             </div>
